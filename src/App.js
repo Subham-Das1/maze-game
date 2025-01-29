@@ -260,6 +260,7 @@ function App() {
               onClick={generateMaze}>
               Generate New Maze
           </button>
+          <h3 className="arrow">Use arrow to navigate to reach the green goal</h3>
           </div>
         </div>
       </div>

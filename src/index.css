@@ -142,3 +142,7 @@ h1, p{
     font-size: 20px;
   }
 }
+
+.arrow{
+  font-weight: bold;
+}
