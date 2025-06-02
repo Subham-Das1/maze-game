@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./background.css"; 
 
-// const FIXED_SIZE = 400; 
-const FIXED_SIZE = Math.min(window.innerWidth * 0.8, 400); 
+const FIXED_SIZE = 400; 
+// const FIXED_SIZE = Math.min(window.innerWidth * 0.8, 400); 
 const INITIAL_SIZES = {
   Easy: { width: 10, height: 10 },
   Medium: { width: 12, height: 12 },
@@ -217,7 +217,7 @@ function App() {
           </div>
           <div className="herosection">
             <div
-              className="maze-container flex items-center justify-center"
+              className="maze-container flex items-center justify-center mr-4"
               style={{
                 width: FIXED_SIZE,
                 height: FIXED_SIZE,
