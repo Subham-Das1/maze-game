@@ -118,6 +118,8 @@ h1, p{
 
   .herosection {
     margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .last-btn {
