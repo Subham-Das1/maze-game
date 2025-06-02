@@ -217,7 +217,7 @@ function App() {
           </div>
           <div className="herosection">
             <div
-              className="maze-container flex items-center justify-center mr-4"
+              className="maze-container flex items-center justify-center"
               style={{
                 width: FIXED_SIZE,
                 height: FIXED_SIZE,
