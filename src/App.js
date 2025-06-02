@@ -132,28 +132,43 @@ function App() {
   );
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      switch (e.key) {
-        case "ArrowRight":
-          handleMove(1, 0);
-          break;
-        case "ArrowLeft":
-          handleMove(-1, 0);
-          break;
-        case "ArrowDown":
-          handleMove(0, 1);
-          break;
-        case "ArrowUp":
-          handleMove(0, -1);
-          break;
-        default:
-          break;
-      }
-    };
+  const handleKeyDown = (e) => {
+    let keyId = null;
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    switch (e.key) {
+      case "ArrowRight":
+        handleMove(1, 0);
+        keyId = "right";
+        break;
+      case "ArrowLeft":
+        handleMove(-1, 0);
+        keyId = "left";
+        break;
+      case "ArrowDown":
+        handleMove(0, 1);
+        keyId = "down";
+        break;
+      case "ArrowUp":
+        handleMove(0, -1);
+        keyId = "up"; 
+        break;
+      default:
+        break;
+    }
+
+    if (keyId) {
+      const keyElem = document.getElementById(keyId);
+      if (keyElem) {
+        keyElem.classList.add("active");
+        setTimeout(() => keyElem.classList.remove("active"), 150);
+      }
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+  return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleMove]);
+
 
   useEffect(() => {
     generateMaze();
@@ -197,16 +212,21 @@ function App() {
             <div className="heading"><h1 className="text-3xl font-bold text-gray-800 w-max">Maze Game</h1></div>
             <div className="navigation">
               {["Easy", "Medium", "Hard"].map((level) => (
-                <button
-                  key={level}
-                  className={`bg-${
-                    difficulty === level ? "blue-700" : "gray-300"
-                  } text-white py-1 px-3 nav-btn rounded`}
-                  onClick={() => handleDifficultyChange(level)}
-                >
-                  {level}
-                </button>
+                  <button
+                    key={level}
+                    className={`bg-${
+                      difficulty === level ? "blue-700" : "gray-300"
+                    } text-white nav-btn rounded p-0`}
+                    onClick={() => handleDifficultyChange(level)}
+                  >
+                    {level}
+                  </button>
               ))}
+              <button
+                className="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 nav-btn"
+                onClick={generateMaze}>
+                Generate New Maze
+              </button>
             </div>
             <div className="content-right">
             <p className="text-lg text-gray-700 ">
@@ -255,13 +275,47 @@ function App() {
                 ))
               )}
             </div>
-            <button
-              className="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 last-btn"
-              onClick={generateMaze}>
-              Generate New Maze
-          </button>
-          <h3 className="arrow">Use arrow to navigate to reach the green goal</h3>
-          </div>
+          </div> 
+
+          <h3 className="instruct">Use arrow to navigate to reach the green goal</h3>
+          
+            <div className="arrow">
+              <div
+                className="arrow1 key"
+                id="up"
+                style={{ padding: '5px 15px' }}
+                onClick={() => handleMove(0, -1)}
+              >
+                ↑
+              </div>
+              <div className="arrow2">
+                <div
+                  className="key"
+                  id="left"
+                  style={{ padding: '5px 15px' }}
+                  onClick={() => handleMove(-1, 0)}
+                >
+                  ←
+                </div>
+                <div
+                  className="key"
+                  id="down"
+                  style={{ padding: '7px 15px' }}
+                  onClick={() => handleMove(0, 1)}
+                >
+                  ↓
+                </div>
+                <div
+                  className="key"
+                  id="right"
+                  style={{ padding: '5px 15px' }}
+                  onClick={() => handleMove(1, 0)}
+                >
+                  →
+                </div>
+              </div>
+            </div>
+
         </div>
       </div>
     </div>
