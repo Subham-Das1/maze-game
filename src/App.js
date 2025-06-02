@@ -215,7 +215,7 @@ function App() {
                 : `Time: ${formatTime(timeTaken)}`}
             </p></div>
           </div>
-          <div className="herosection">
+          <div className="herosection mr-2">
             <div
               className="maze-container flex items-center justify-center"
               style={{
