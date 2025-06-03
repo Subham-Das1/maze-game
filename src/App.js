@@ -296,11 +296,11 @@ function App() {
 
           <h3 className="instruct">Use arrow to navigate to reach the green goal</h3>
           
-            <div className="arrow">
+            <div className="arrow mb-6">
               <div
                 className="arrow1 key"
                 id="up"
-                style={{ padding: '5px 15px' }}
+                style={{ padding: '5px 20px'}}
                 onClick={() => handleMove(0, -1)}
               >
                 ↑
@@ -309,7 +309,7 @@ function App() {
                 <div
                   className="key"
                   id="left"
-                  style={{ padding: '5px 15px' }}
+                  style={{ padding: '5px 25px' }}
                   onClick={() => handleMove(-1, 0)}
                 >
                   ←
@@ -317,7 +317,7 @@ function App() {
                 <div
                   className="key"
                   id="down"
-                  style={{ padding: '7px 15px' }}
+                  style={{ padding: '7px 25px' }}
                   onClick={() => handleMove(0, 1)}
                 >
                   ↓
@@ -325,7 +325,7 @@ function App() {
                 <div
                   className="key"
                   id="right"
-                  style={{ padding: '5px 15px' }}
+                  style={{ padding: '5px 25px' }}
                   onClick={() => handleMove(1, 0)}
                 >
                   →
