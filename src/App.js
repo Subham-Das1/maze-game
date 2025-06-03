@@ -88,7 +88,10 @@ function App() {
   const [startTime, setStartTime] = useState(null);
   const [timeTaken, setTimeTaken] = useState(0);
 
-  const cellSize = FIXED_SIZE / Math.max(mazeSize.width, mazeSize.height);
+  // const cellSize = FIXED_SIZE / Math.max(mazeSize.width, mazeSize.height);
+  const GAP = 2;
+  const maxDimension = Math.max(mazeSize.width, mazeSize.height);
+  const cellSize = (FIXED_SIZE - GAP * (maxDimension - 1)) / maxDimension;
 
   const generateMaze = useCallback(() => {
     const newMaze = generateMazeStructure(mazeSize);
@@ -235,7 +238,7 @@ function App() {
                 : `Time: ${formatTime(timeTaken)}`}
             </p></div>
           </div>
-          {/* <div className="herosection">
+          <div className="herosection">
             <div
               className="maze-container flex items-center justify-center"
               style={{
@@ -243,7 +246,7 @@ function App() {
                 height: FIXED_SIZE,
                 display: "grid",
                 gridTemplateColumns: `repeat(${mazeSize.width}, ${cellSize}px)`,
-                gap: "2px",
+                gap: `${GAP}px`,
               }}
             >
               {maze.flatMap((row, rowIndex) =>
@@ -256,12 +259,10 @@ function App() {
                       backgroundColor:
                         playerPos.x === colIndex && playerPos.y === rowIndex
                           ? "#f39c12"
-                          : colIndex === mazeSize.width - 1 &&
-                            rowIndex === mazeSize.height - 1
+                          : colIndex === mazeSize.width - 1 && rowIndex === mazeSize.height - 1
                           ? "#2ecc71"
                           : visitedCells.some(
-                              (visited) =>
-                                visited.x === colIndex && visited.y === rowIndex
+                              (visited) => visited.x === colIndex && visited.y === rowIndex
                             )
                           ? "#1890E0"
                           : "#1d1d1d",
@@ -274,57 +275,6 @@ function App() {
                   ></div>
                 ))
               )}
-            </div>
-          </div>  */}
-          <div className="herosection">
-            <div
-              className="maze-container"
-              style={{
-                width: "400px", 
-                height: "400px", 
-                margin: "0 auto", 
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: `repeat(${mazeSize.width}, ${cellSize}px)`,
-                  gridTemplateRows: `repeat(${mazeSize.height}, ${cellSize}px)`,
-                  gap: "2px",
-                }}
-              >
-                {maze.flatMap((row, rowIndex) =>
-                  row.map((cell, colIndex) => (
-                    <div
-                      key={`${rowIndex}-${colIndex}`}
-                      style={{
-                        width: `${cellSize}px`,
-                        height: `${cellSize}px`,
-                        backgroundColor:
-                          playerPos.x === colIndex && playerPos.y === rowIndex
-                            ? "#f39c12"
-                            : colIndex === mazeSize.width - 1 &&
-                              rowIndex === mazeSize.height - 1
-                            ? "#2ecc71"
-                            : visitedCells.some(
-                                (visited) =>
-                                  visited.x === colIndex && visited.y === rowIndex
-                              )
-                            ? "#1890E0"
-                            : "#1d1d1d",
-                        borderTop: cell.walls[0] ? "3px solid #fff" : "none",
-                        borderRight: cell.walls[1] ? "3px solid #fff" : "none",
-                        borderBottom: cell.walls[2] ? "3px solid #fff" : "none",
-                        borderLeft: cell.walls[3] ? "3px solid #fff" : "none",
-                        boxSizing: "border-box",
-                      }}
-                    ></div>
-                  ))
-                )}
-              </div>
             </div>
           </div>
 
