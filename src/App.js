@@ -6,7 +6,7 @@ const FIXED_SIZE = 400;
 const INITIAL_SIZES = {
   Easy: { width: 10, height: 10 },
   Medium: { width: 12, height: 12 },
-  Hard: { width: 20, height: 20 },
+  Hard: { width: 14, height: 14 },
 };
 
 const directions = [
