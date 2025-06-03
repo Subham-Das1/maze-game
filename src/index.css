@@ -145,6 +145,11 @@ h1, p{
   .herosection {
     margin-top: 20px;
   }
+
+  .content-right p{
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 480px) {
