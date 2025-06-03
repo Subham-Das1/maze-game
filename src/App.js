@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./background.css"; 
 
-const FIXED_SIZE = 400; 
+// const FIXED_SIZE = 400; 
 // const FIXED_SIZE = Math.min(window.innerWidth * 0.8, 400); 
 const INITIAL_SIZES = {
   Easy: { width: 10, height: 10 },
@@ -89,6 +89,15 @@ function App() {
   const [timeTaken, setTimeTaken] = useState(0);
 
   // const cellSize = FIXED_SIZE / Math.max(mazeSize.width, mazeSize.height);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const FIXED_SIZE = windowWidth > 480 ? 400 : 350;
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const GAP = 2;
   const maxDimension = Math.max(mazeSize.width, mazeSize.height);
   const cellSize = (FIXED_SIZE - GAP * (maxDimension - 1)) / maxDimension;
