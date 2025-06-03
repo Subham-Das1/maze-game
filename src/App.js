@@ -212,31 +212,38 @@ function App() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center space-y-6 z-10">
           <div className="flex items-center justify-between header">
-            <div className="heading"><h1 className="text-3xl font-bold text-gray-800 w-max">Maze Game</h1></div>
+            <div className="top-row">
+              <div className="heading">
+                <h1 className="text-3xl font-bold text-gray-800 w-max">Maze Game</h1>
+              </div>
+              <div className="content-right">
+                <p className="text-xl text-gray-700">
+                  {completed
+                    ? `🎉 Completed in ${formatTime(timeTaken)}!`
+                    : `Time: ${formatTime(timeTaken)}`}
+                </p>
+              </div>
+            </div>
+
             <div className="navigation">
               {["Easy", "Medium", "Hard"].map((level) => (
-                  <button
-                    key={level}
-                    className={`bg-${
-                      difficulty === level ? "blue-700" : "gray-300"
-                    } text-white nav-btn rounded p-0`}
-                    onClick={() => handleDifficultyChange(level)}
-                  >
-                    {level}
-                  </button>
+                <button
+                  key={level}
+                  className={`bg-${
+                    difficulty === level ? "blue-700" : "gray-300"
+                  } text-white nav-btn rounded p-0`}
+                  onClick={() => handleDifficultyChange(level)}
+                >
+                  {level}
+                </button>
               ))}
               <button
                 className="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 nav-btn"
-                onClick={generateMaze}>
+                onClick={generateMaze}
+              >
                 Generate New Maze
               </button>
             </div>
-            <div className="content-right">
-            <p className="text-lg text-gray-700 ">
-              {completed
-                ? `🎉 Completed in ${formatTime(timeTaken)}!`
-                : `Time: ${formatTime(timeTaken)}`}
-            </p></div>
           </div>
           <div className="herosection">
             <div
