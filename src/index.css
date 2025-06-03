@@ -143,11 +143,6 @@ h1, p{
     padding: 10px 15px;
   }
 
-  .content-right {
-    margin: 10px 0;
-    font-size: medium;
-  }
-
   h1 {
     font-size: 24px;
   }
@@ -166,10 +161,6 @@ h1, p{
   .nav-btn {
     font-size: 15px;
     padding: 8px 12px;
-  }
-  
-  h1 {
-    font-size: 20px;
   }
 
   .maze-container {
