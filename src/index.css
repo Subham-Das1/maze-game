@@ -36,6 +36,7 @@ h1, p{
 .header{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .nav-btn{
@@ -68,60 +69,6 @@ h1, p{
   margin: 0 auto;        
   height: 400px;
   z-index: 10;
-}
-
-
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navigation {
-    position: static;
-    transform: none;
-    margin-top: 10px;
-  }
-
-  .nav-btn {
-    font-size: 16px;
-    padding: 8px;
-  }
-
-  .content-right {
-    margin: 10px 0;
-    font-size: medium;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .herosection {
-    margin-top: 20px;
-  }
-
-  .last-btn {
-    font-size: 16px;
-    padding: 8px;
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-btn {
-    font-size: 14px;
-    padding: 6px;
-  }
-
-  .last-btn {
-    font-size: 14px;
-    padding: 6px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
 }
 
 .instruct{
@@ -178,3 +125,55 @@ h1, p{
 }
 
 
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .navigation {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+  }
+
+  .nav-btn {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .content-right {
+    margin: 10px 0;
+    font-size: medium;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .herosection {
+    margin-top: 20px;
+  }
+
+  .maze-container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-btn {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+
+  .maze-container {
+    width: 250px;
+    height: 250px;
+  }
+}
