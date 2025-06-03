@@ -185,3 +185,9 @@ h1, p{
   }
 } 
 
+@media (max-width: 380px){
+  .nav-btn {
+    font-size: 13px;
+    padding: 5px 9px;
+  }
+}
