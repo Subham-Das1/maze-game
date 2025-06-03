@@ -135,7 +135,6 @@ h1, p{
   .navigation {
     position: static;
     transform: none;
-    margin-top: 10px;
   }
 
   .nav-btn {
@@ -143,28 +142,14 @@ h1, p{
     padding: 10px 15px;
   }
 
-  h1 {
-    font-size: 24px;
-  }
-
   .herosection {
     margin-top: 20px;
-  }
-
-  .maze-container {
-    width: 300px;
-    height: 300px;
   }
 }
 
 @media (max-width: 480px) {
   .nav-btn {
     font-size: 15px;
-    padding: 8px 12px;
-  }
-
-  .maze-container {
-    width: 250px;
-    height: 250px;
+    padding: 5px 12px;
   }
 }
