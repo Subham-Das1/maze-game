@@ -235,7 +235,7 @@ function App() {
                 : `Time: ${formatTime(timeTaken)}`}
             </p></div>
           </div>
-          <div className="herosection">
+          {/* <div className="herosection">
             <div
               className="maze-container flex items-center justify-center"
               style={{
@@ -275,7 +275,58 @@ function App() {
                 ))
               )}
             </div>
-          </div> 
+          </div>  */}
+          <div className="herosection">
+            <div
+              className="maze-container"
+              style={{
+                width: "400px", 
+                height: "400px", 
+                margin: "0 auto", 
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: `repeat(${mazeSize.width}, ${cellSize}px)`,
+                  gridTemplateRows: `repeat(${mazeSize.height}, ${cellSize}px)`,
+                  gap: "2px",
+                }}
+              >
+                {maze.flatMap((row, rowIndex) =>
+                  row.map((cell, colIndex) => (
+                    <div
+                      key={`${rowIndex}-${colIndex}`}
+                      style={{
+                        width: `${cellSize}px`,
+                        height: `${cellSize}px`,
+                        backgroundColor:
+                          playerPos.x === colIndex && playerPos.y === rowIndex
+                            ? "#f39c12"
+                            : colIndex === mazeSize.width - 1 &&
+                              rowIndex === mazeSize.height - 1
+                            ? "#2ecc71"
+                            : visitedCells.some(
+                                (visited) =>
+                                  visited.x === colIndex && visited.y === rowIndex
+                              )
+                            ? "#1890E0"
+                            : "#1d1d1d",
+                        borderTop: cell.walls[0] ? "3px solid #fff" : "none",
+                        borderRight: cell.walls[1] ? "3px solid #fff" : "none",
+                        borderBottom: cell.walls[2] ? "3px solid #fff" : "none",
+                        borderLeft: cell.walls[3] ? "3px solid #fff" : "none",
+                        boxSizing: "border-box",
+                      }}
+                    ></div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
 
           <h3 className="instruct">Use arrow to navigate to reach the green goal</h3>
           
