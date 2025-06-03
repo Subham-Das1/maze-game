@@ -167,5 +167,13 @@ h1, p{
     font-size: 15px;
     padding: 5px 12px;
   }
+
+  .herosection{
+    height: 360px;
+  }
+
+  .header{
+    gap: 0;
+  }
 } 
 
