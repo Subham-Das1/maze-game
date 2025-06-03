@@ -175,5 +175,13 @@ h1, p{
   .header{
     gap: 0;
   }
+
+  h1{
+    margin-top: 10px;
+  }
+
+  p{
+    margin-top: 10px;
+  }
 } 
 
