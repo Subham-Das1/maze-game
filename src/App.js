@@ -226,10 +226,13 @@ function App() {
                 <h1 className="text-3xl font-bold text-gray-800 w-max">Maze Game</h1>
               </div>
               <div className="content-right">
-                <p className="text-xl text-gray-700">
+                {/* <p className="text-xl text-gray-700">
                   {completed
                     ? `🎉 Completed in ${formatTime(timeTaken)}!`
                     : `Time: ${formatTime(timeTaken)}`}
+                </p> */}
+                <p className="text-xl text-gray-700">
+                  Time: {formatTime(timeTaken)}
                 </p>
               </div>
             </div>
@@ -296,7 +299,7 @@ function App() {
 
           <h3 className="instruct">Use arrow to navigate to reach the green goal</h3>
           
-            <div className="arrow mb-6">
+            <div className="arrow mb-8">
               <div
                 className="arrow1 key"
                 id="up"
@@ -332,9 +335,19 @@ function App() {
                 </div>
               </div>
             </div>
-
         </div>
       </div>
+      {completed && (
+        <div className="popup">
+          <h1 className="text-4xl font-bold mb-6">🎉 Completed in {formatTime(timeTaken)}!</h1>
+          <button
+            onClick={generateMaze}
+            className="nav-btn"
+          >
+            Restart
+          </button>
+        </div>
+      )}
     </div>
   );
 }
